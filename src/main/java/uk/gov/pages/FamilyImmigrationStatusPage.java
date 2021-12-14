@@ -1,5 +1,7 @@
 package uk.gov.pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 import uk.gov.utility.Utility;
 
 public class FamilyImmigrationStatusPage extends Utility {
+
+private static final Logger log = LogManager.getLogger(FamilyImmigrationStatusPage.class.getName());
 
     @CacheLookup
     @FindBy (xpath = "//label[normalize-space()='Yes']")
@@ -30,10 +34,12 @@ public class FamilyImmigrationStatusPage extends Utility {
 
             case "Yes":
                 pmClickOnElement(yes);
+                log.info("Selecting immigration status"+yes.toString());
                 break;
 
             case "No":
                 pmClickOnElement(no);
+                log.info("Selecting immigration status"+no.toString());
                 break;
 
         }
@@ -43,6 +49,7 @@ public class FamilyImmigrationStatusPage extends Utility {
 
     public void clickNextStepButton(){
         pmClickOnElement(nextStepButton);
+        log.info("Clicking on continue button : "+nextStepButton.toString());
     }
 
 }

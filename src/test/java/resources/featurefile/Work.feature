@@ -1,6 +1,7 @@
 Feature: UK visa check for work
   A test to check if Chilean citizen needs visa to come and work in UK for longer than 6 months
-  
+
+  @Regression
   Scenario: Chilean can verify visa requirement successfully
     Given   User clicks on 'Start now' button
     When    User selects a nationality as "Chile" from dropdown

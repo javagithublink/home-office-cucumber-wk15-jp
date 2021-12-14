@@ -1,6 +1,7 @@
 Feature: Tourism visa check
   Australian citizen coming for tourism, can go to website and see if visa needed to come to uk
 
+  @Sanity @Regression
   Scenario: Australian tourist can verify visa requirement successfully
     Given   User clicks on 'Start now' button
     When    User selects a nationality as "Australia" from dropdown

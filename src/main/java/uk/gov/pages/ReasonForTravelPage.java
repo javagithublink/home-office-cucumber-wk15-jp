@@ -1,5 +1,7 @@
 package uk.gov.pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +11,9 @@ import uk.gov.utility.Utility;
 import java.util.List;
 
 public class ReasonForTravelPage extends Utility {
-   @CacheLookup
+    private static final Logger log = LogManager.getLogger(ReasonForTravelPage.class.getName());
+
+    @CacheLookup
    @FindBy (xpath = "//div[@class='govuk-radios']//label")
    List<WebElement> reasonForVisitList;
 
@@ -29,8 +33,10 @@ public class ReasonForTravelPage extends Utility {
             if(reason1.getText().equalsIgnoreCase(reason)){
                pmwaitWithThreadSleep(10);
                 reason1.click();
+
                 break;
             }
+            log.info("Selecting reason for visit list : "+reasonForVisitList.toString());
         }
 
 
@@ -40,5 +46,6 @@ public class ReasonForTravelPage extends Utility {
             public void clickNextButton(){
 
             pmClickOnElement(nextStepButton);
+            log.info("Clicking on next step button : "+nextStepButton.toString());
         }
 }

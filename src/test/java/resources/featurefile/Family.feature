@@ -1,6 +1,6 @@
 Feature: Visa check for partner or family
   A test to check if Colombian citizen requires visa to join partner or family for a long stay
-
+@Smoke @Regression
   Scenario: Columbian can check family visa requirement successfully
     Given   User clicks on 'Start now' button
     When    User selects a nationality as "Colombia" from dropdown
